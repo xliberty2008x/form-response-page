@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Response Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #333; }
+    </style>
+</head>
+<body>
+    <h1>Form Submission Response</h1>
+    <div id="response"></div>
+    <script>
+        // Function to get URL parameters
+        function getQueryParams() {
+            const params = {};
+            window.location.search.substring(1).split("&").forEach(function(part) {
+                const item = part.split("=");
+                params[item[0]] = decodeURIComponent(item[1]);
+            });
+            return params;
+        }
+
+        // Display the response
+        const params = getQueryParams();
+        const responseDiv = document.getElementById('response');
+        responseDiv.innerHTML = '<pre>' + JSON.stringify(params, null, 2) + '</pre>';
+    </script>
+</body>
+</html>
