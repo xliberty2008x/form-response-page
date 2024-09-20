@@ -1,38 +1,124 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Thank You</title> <style> body { font-family: 'Arial', sans-serif; background: linear-gradient(135deg, #1f1f1f, #2d2d2d); display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; color: #fff; } .container { background: #2b2b2b; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); max-width: 600px; width: 100%; text-align: center; border: 2px solid; border-image: linear-gradient(45deg, #ff6ec4, #7873f5) 1; } .container h2 { margin-bottom: 20px; color: #fff; } .message-placeholder { padding: 15px; border: 1px solid #007bff; border-radius: 10px; background-color: #3b3b3b; color: #fff; margin-bottom: 20px; } .button-container { display: flex; justify-content: space-between; } .button-container button { padding: 10px 20px; border: none; border-radius: 5px; background: linear-gradient(45deg, #ff6ec4, #7873f5); color: #fff; font-size: 16px; cursor: pointer; flex: 1; margin: 0 5px; transition: background 0.3s; } .button-container button:hover { background: linear-gradient(45deg, #7873f5, #ff6ec4); } </style> </head> <body> <div class="container"> <h2>Thank You!</h2> <div class="message-placeholder" id="messagePlaceholder"> Your form has been successfully submitted. We will get back to you soon! </div> <div class="button-container"> <button id="postButton">Post</button> <button id="refillButton">Refill Form</button> </div> </div>
-<script>
-    document.getElementById('postButton').addEventListener('click', function() {
-        const message = document.getElementById('messagePlaceholder').innerText;
-        const payload = {
-            submission_id: '6025440021662206077',
-            formID: '242615329930356',
-            ip: '104.28.156.61',
-            email12: 'k@big-sister.ai',
-            whatis: 'Great',
-            whobear: 'Turkey and Dog',
-            whichbig: 'Payment model',
-            whatbenefits: 'A lot of benefits',
-            message: message
-        };
-        fetch('https://your-webhook-url.com', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-            alert('Message sent successfully!');
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-            alert('There was an error sending the message.');
-        });
-    });
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1f1f1f, #2d2d2d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+        }
+        .container {
+            background: #2b2b2b;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            border: 2px solid;
+            border-image: linear-gradient(45deg, #ff6ec4, #7873f5) 1;
+        }
+        .container h2 {
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .message-placeholder {
+            padding: 15px;
+            border: 1px solid #007bff;
+            border-radius: 10px;
+            background-color: #3b3b3b;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .button-container button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(45deg, #ff6ec4, #7873f5);
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            flex: 1;
+            margin: 0 5px;
+            transition: background 0.3s;
+        }
+        .button-container button:hover {
+            background: linear-gradient(45deg, #7873f5, #ff6ec4);
+        }
+        .button-container button:disabled {
+            background-color: #cccccc; /* Grey background */
+            color: #666666; /* Grey text */
+            cursor: not-allowed; /* Change cursor to indicate unclickable */
+            opacity: 0.6; /* Slightly transparent */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>AI Generated Testimonial</h2>
+        <div class="message-placeholder" id="messagePlaceholder">Message here</div>
+        <div class="button-container">
+            <button id="postButton">Post</button>
+            <button id="refillButton">Refill Form</button>
+        </div>
+    </div>
+    <script>
+        document.getElementById('postButton').addEventListener('click', function() {
+            console.log('Post button clicked'); // Log when the button is clicked
 
-    document.getElementById('refillButton').addEventListener('click', function() {
-        window.location.href = 'https://form.jotform.com/242615329930356';
-    });
-</script>
-</body> </html>
+            const message = document.getElementById('messagePlaceholder').innerText;
+            const payload = {
+                submission_id: '6025440021662206077',
+                formID: '242615329930356',
+                ip: '104.28.156.61',
+                email12: 'k@big-sister.ai',
+                whatis: 'Great',
+                whobear: 'Turkey and Dog',
+                whichbig: 'Payment model',
+                whatbenefits: 'A lot of benefits',
+                message: message
+            };
+
+            console.log('Payload created:', payload); // Log the payload
+
+            fetch('https://hook.us1.make.com/k31vmxna2l1dfbwo7m9oq299zsizgfe3', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(response => {
+                console.log('Fetch response received'); // Log when the response is received
+                if (response.ok) {
+                    console.log('Success: Message sent successfully!');
+                    alert('Thank you for your valuable feedback! Big Sister AI appreciates your testimonial.');
+                    document.getElementById('postButton').disabled = true; // Disable the button
+                } else {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('There was an error sending the message.');
+            });
+        });
+
+        document.getElementById('refillButton').addEventListener('click', function() {
+            window.location.href = 'https://form.jotform.com/242615329930356';
+        });
+    </script>
+</body>
+</html>
