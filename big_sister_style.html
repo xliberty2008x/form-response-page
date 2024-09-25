@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You</title>
+    <title>Thank You</title>`
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -37,10 +37,32 @@
             background-color: #3b3b3b;
             color: #fff;
             margin-bottom: 20px;
+            position: relative;
+        }
+        .message-placeholder[contenteditable="true"] {
+            outline: none;
+        }
+        .message-placeholder[contenteditable="true"]::after {
+            content: 'Click to edit the text';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #007bff;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .message-placeholder[contenteditable="true"]:hover::after {
+            opacity: 1;
         }
         .button-container {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
         }
         .button-container button {
             padding: 10px 20px;
@@ -68,10 +90,9 @@
 <body>
     <div class="container">
         <h2>AI Generated Testimonial</h2>
-        <div class="message-placeholder" id="messagePlaceholder">Message here</div>
+        <div class="message-placeholder" id="messagePlaceholder" contenteditable="true">Message here</div>
         <div class="button-container">
             <button id="postButton">Post</button>
-            <button id="refillButton">Refill Form</button>
         </div>
     </div>
     <script>
@@ -114,10 +135,6 @@
                 console.error('Error:', error);
                 alert('There was an error sending the message.');
             });
-        });
-
-        document.getElementById('refillButton').addEventListener('click', function() {
-            window.location.href = 'https://form.jotform.com/242615329930356';
         });
     </script>
 </body>
